@@ -1,19 +1,16 @@
 module circuit_test;
-reg in1, in2, in3, in4;
+reg[3:0] in;
 reg dummy;
-wire out1, out2;
+wire[1:0] out;
 
-encoder dut_module1 (in1, in2, in3, in4, out1, out2);
+encoder dut_module1 (in, out);
 
     initial begin
-        dummy = $value$plusargs("in1=%b", in1);
-        dummy = $value$plusargs("in2=%b", in2);
-        dummy = $value$plusargs("in3=%b", in3);
-        dummy = $value$plusargs("in4=%b", in4);
+        dummy = $value$plusargs("in=%b", in);
 
-        $display("input values are: %b %b %b %b", in1, in2, in3, in4);
+        $display("input values are: %b", in);
         #1;
-        $display("output values are: %b %b", out1, out2);
+        $display("output values are: %b", out);
         $finish;
     end
 endmodule

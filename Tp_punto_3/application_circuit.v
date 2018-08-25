@@ -1,22 +1,22 @@
-module encoder (in1, in2, in3, in4, out1, out2);
+module encoder (in, out);
 
-    input in1, in2, in3, in4;
-    output reg out1=0, out2=0;
-
+    input[3:0] in;
+    output reg[1:0] out;
+    reg error = 0;
         
-    always @(in1 or in2 or in3 or in4) begin
-        if (in1 == 1)
-            out1 = 1;
+    always @(in) begin
+        if (in == 'b0001)
+            out = 'b00;
         else
-            if (in2 == 1)
-                out2 = 1;
+            if (in == 'b0010)
+                out = 'b01;
             else
-                if (in3 == 1)
-                    out1 = 1;
+                if (in == 'b0100)
+                    out = 'b10;
                 else
-                    begin if (in4 == 1)
-                        out1 = 1;
-                        out2 = 1;   
-                    end      
+                    if (in == 'b1000)
+                        out = 'b11;
+                    else  
+                        error = 1;
     end
 endmodule
