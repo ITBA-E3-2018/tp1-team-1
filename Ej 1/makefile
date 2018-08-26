@@ -1,9 +1,21 @@
-run : main.o functions.o
-	cc -o run main.o functions.o 
+objects = main.o functions.o
+#si se quieren agregar mas archivos *.o, que se agreguen a esta declaracion del principio
+#para que el programa los trabaje en conjunto.
 
-main.o : main.c functions.h
-	cc -c main.c
-functions.o : functions.c functions.h 
-	cc -c functions.c
+#la declaracion del principio es una especie de DEFINE 
+
+
+run : $(objects)
+	cc -o run $(objects) 
+
+main.o : functions.h
+functions.o : functions.h 
+#makefile tiene una regla implicita para los archivos .c
+#tal que los compila solos
+
+
+.PHONY: clean
 clean :
-	rm run main.o functions.o 
+	rm run $(objects) 
+#esto se hace para que no haya errores al eliminar
+#en el caso de que algun archivo se llame clean
