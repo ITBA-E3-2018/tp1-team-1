@@ -1,4 +1,4 @@
-module circuit_test;
+module circuit_test; //prueba para los modulos encoder decoder mux y demux
 reg[3:0] in1;
 reg[1:0] in2;
 reg[3:0] in3;
