@@ -40,7 +40,7 @@ module decoder (in, out);
 endmodule
 
 
-module mux (in, out, select_lines);
+module mux (in, out, select_lines); //no se si esta bien poner select lines como input
 
     input [3:0] in;
     output reg out;
@@ -60,3 +60,5 @@ module mux (in, out, select_lines);
                         out = in[0:0];
     end
 endmodule
+
+
