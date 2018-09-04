@@ -54,7 +54,7 @@ endmodule
 
 
 
-module SimpleAdder(a,b,ci,result,carry);
+module SimpleAdder(a,b,ci,result,co);
 
 //input Port Declarations
 input a;
@@ -63,14 +63,19 @@ input ci;
 
 //Output Port Declarations
 output result;
-output carry;
+output co;
 
 //----Input Ports Data Type----//
-wire a,b;
+wire a,b,d,e,f;
 
 //----Output Ports Data Type----//
-wire result,carry;
+wire result,co;
 
-assign {carry,result} = a+b+ci;
+xor(result,a,b,ci);
+
+and(d,a,b);
+xor(e,a,b);
+and(f,ci,e);
+or(co,d,f);
 
 endmodule
