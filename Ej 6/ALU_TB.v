@@ -21,7 +21,7 @@ integer i,j;
 initial begin
   $display("N1   N2   OP  RESULT CCR:[carry overflow]");
   $monitor("%b %b %b %b %b", n1,n2,operator,result,CCR);
-  #5 operator=3'b;
+  #5 operator=3'b111;
   #5 n1=0;
   #5 n2=0;
   
