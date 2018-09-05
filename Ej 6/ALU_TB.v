@@ -1,5 +1,13 @@
 `include "ALU.v" 
+
+//-----------------------Como trabajar con la Test Bench----------------------------------------- 
+//TestBench propuesta de la ALU donde uno puede variar operador para ver la respuesta de la ALU
+//a todos los numeros de 4bits entre si.
+//Despliega los numeros ingresados, el operador propuesto, el resultado y el CCR (Carry Overflow)
+//------------------------------------------------------------------------------------------------
+
 module ALU_TestBench();
+
 //Declare inputs of TESTBENCH as regs of TB, and Outputs of TESTBENCH as wires
 reg [3:0] n1, n2;
 reg [2:0] operator;
@@ -13,7 +21,7 @@ integer i,j;
 initial begin
   $display("N1   N2   OP  RESULT CCR:[carry overflow]");
   $monitor("%b %b %b %b %b", n1,n2,operator,result,CCR);
-  #5 operator=3'b111;
+  #5 operator=3'b;
   #5 n1=0;
   #5 n2=0;
   

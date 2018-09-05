@@ -7,6 +7,21 @@
 `include "And.v"
 `include "Or.v"
 `include "Xor.v"
+//-------------------MANUAL DE USUARIO----------------------------------------------------
+//La ALU tiene de ingreso don numeros de 4 bits y un operador de 3 bits
+//Se pude elegir como output el resultado bajo el siguiente critero:
+//000-Suma
+//001-Resta
+//010-ShiftLeft
+//011-Compleneto2
+//100-Negación
+//101-AND
+//110-OR
+//111-XOR
+//Para las oepraciones sobre un simple numero de 4bits la ALU opera sobre el primero
+//A su vez devuelve carry y overflow para poder interpretar la operacion de suma y resta
+//Overflow y Carry valen 0 para los demas casos.
+//-----------------------------------------------------------------------------------------
 
 module ALU(n1,n2,operator,CCR,X);
 
@@ -16,7 +31,7 @@ input [2:0] operator;
 output [3:0] X;
 output [1:0] CCR;
 
-//----Input Ports Data Type----//
+//----Input-Output Ports Data Type----//
 wire [3:0] n1,n2;
 wire [2:0] operator;
 reg [3:0]  X;
@@ -31,8 +46,6 @@ wire [3:0] ResN;
 wire [3:0] ResA;
 wire [3:0] ResO;
 wire [3:0] ResX;
-
-
 wire Carry;
 wire Overflow;
 wire Carry1;
@@ -48,7 +61,7 @@ AND A(n1,n2,ResA);
 OR O(n1,n2,ResO);
 XOR Xo(n1,n2,ResX);
 
-
+//--Operation Output--//
 always@(*)begin
 
 if(operator==3'b000)begin
