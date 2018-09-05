@@ -74,7 +74,7 @@ wire result,co;
 xor(result,a,b,ci);
 
 and(d,a,b);
-xor(e,a,b);
+or(e,a,b);
 and(f,ci,e);
 or(co,d,f);
 
