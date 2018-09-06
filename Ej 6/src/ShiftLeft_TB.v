@@ -1,4 +1,4 @@
-`include "ShiftLeft.v" 
+
 module ShiftLeft_TestBench();
 //Declare inputs of TESTBENCH as regs of TB, and Outputs of TESTBENCH as wires
 reg [3:0] n1;

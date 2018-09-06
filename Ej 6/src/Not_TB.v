@@ -1,4 +1,4 @@
-`include "Not.v" 
+
 
 
 module NOT_TB(n1,x);

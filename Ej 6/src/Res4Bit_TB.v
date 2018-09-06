@@ -1,18 +1,18 @@
-`include "Bit4Adder.v"
-`include "SimpleAdder.v"  
-module Bit4Adder_TestBench();
+
+module Res4Bit_TestBench();
 //Declare inputs of TESTBENCH as regs of TB, and Outputs of TESTBENCH as wires
-reg [3:0] n1, n2;
-wire [3:0] result;
-wire co,overflow;
+output reg [3:0] n1, n2;
+input wire [3:0] result;
+input wire Co;
+input wire Overflow;
 //COnnect DUT to TB
-Bit4Adder DUT(n1, n2,result,co,overflow);
+Res4Bit DUT(n1, n2,result,Co,Overflow);
 //initialize all variables
 integer i,j;
 
 initial begin
   $display("N1    N2    RESULT   ");
-  $monitor("%b %b %b %b %b", n1,n2,result,co,overflow);
+  $monitor("%b %b %b %b %b", n1,n2,result,Co,Overflow);
   #5 n1=0;
   #5 n2=0;
   

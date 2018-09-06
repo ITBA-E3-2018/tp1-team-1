@@ -1,4 +1,3 @@
-`include "ALU.v" 
 
 //-----------------------Como trabajar con la Test Bench----------------------------------------- 
 //TestBench propuesta de la ALU donde uno puede variar operador para ver la respuesta de la ALU

@@ -1,12 +1,4 @@
-`include "ShiftLeft.v" 
-`include "Bit4Adder.v" 
-`include "Res4Bit.v"
-`include "Comp2.v"
-`include "SimpleAdder.v"
-`include "Not.v"
-`include "And.v"
-`include "Or.v"
-`include "Xor.v"
+
 //-------------------MANUAL DE USUARIO----------------------------------------------------
 //La ALU tiene de ingreso don numeros de 4 bits y un operador de 3 bits
 //Se pude elegir como output el resultado bajo el siguiente critero:

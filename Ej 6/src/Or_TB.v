@@ -1,6 +1,4 @@
 
-`include "OR.v" 
-
 
 module OR_TB(n1,n2,x);
 

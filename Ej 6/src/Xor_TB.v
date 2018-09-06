@@ -1,4 +1,3 @@
-`include "Xor.v" 
 
 
 module Xor_TB(n1,n2,x);
