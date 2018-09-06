@@ -1,6 +1,6 @@
 
 
-module OR_TB(n1,n2,x);
+module AND_TB(n1,n2,x);
 
 output [3:0] n1,n2;
 input [3:0] x;
