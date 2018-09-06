@@ -15,6 +15,21 @@ functions.o : functions.h
 
 TEST1: run
 	./run 0 1 1
+	
+TEST2: run
+	./run a 1 1
+TEST3: run
+	./run 0 s 1
+TEST4: run
+	./run 0 1 -
+TEST5: run
+	./run 0 1 1 2 3 4
+TEST6: run
+	./run 0 1 
+TEST7: run
+	./run 1 3 3
+TEST8: run
+	./run - 5 2
 .PHONY: clean
 clean :
 	rm run $(objects) 
