@@ -9,11 +9,9 @@
 #include <stdio.h>
 #include <string.h>
 #include "functions.h"
-#define TRUE 1
-#define FALSE 0
+
 int main(int argc, const char * argv[]) {
     int number_of_parameters=argc-1;
-    
     //validating datas
     //check that the ammount of data that receives is the needed
     
@@ -25,43 +23,20 @@ int main(int argc, const char * argv[]) {
         
     
     }
+    else{
     const char* world_1=argv[1];
     const char* world_2=argv[2];
     const char* world_3=argv[3];
     int is_signed=0,parte_entera=0,parte_fraccionaria=0;
+    int Error= validate_characters(argc, argv, &is_signed, &parte_entera, &parte_fraccionaria,world_1,world_2,world_3);
+
     
     //Extracting the int numbers from the string parameters
     //in the while expression checks for valid characters among the data received
     //each for block extracts each word character one by one and builds the decimal number upon them
-    int Error =0;
+    //int Error =0;
     //For the is_signed block only sets it on 1 or 0 whereas the number is signated or not signated
-        for(int j=0;j<strlen(world_1);j++){
-            if (world_1[j]=='1' ||world_1[j]== '-')
-                is_signed = TRUE;
-            else if (world_1[j]== '0' ){
-                is_signed=FALSE;
-                break;
-            }
-            else{
-                Error=1;
-            }
-        }
-        for(int j=0;j<strlen(world_2);j++){
-            if (world_2[j]<='9' && world_2[j]>= '0')
-                parte_entera = parte_entera * 10 + ( world_2[j] - '0' );
-            else {
-                Error=1;
-                break;
-            }
-        }
-        for(int j=0;j<strlen(world_3);j++){
-            if (world_3[j]<='9' && world_3[j]>= '0')
-                parte_fraccionaria = parte_fraccionaria * 10 + ( world_3[j] - '0' );
-            else {
-                Error=1;
-                break;
-            }
-        }
+
     
 
     if(Error!=0){
@@ -95,6 +70,6 @@ int main(int argc, const char * argv[]) {
         printf("Resolution: %g\n Rango: %g\n",resolution,extremo_A-extremo_B);
     }
 
-   
+    }
     return 0;
 }

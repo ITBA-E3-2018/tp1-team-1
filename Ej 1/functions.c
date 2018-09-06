@@ -25,7 +25,7 @@ float exp_base_two(int n){
 }
 
 
-/*int validate_characters(int argc,const char**argv,int is_signed,int parte_entera,int parte_fraccionaria){
+int validate_characters(int argc,const char**argv,int *is_signed,int *parte_entera,int* parte_fraccionaria, const char* world_1, const char* world_2, const char* world_3){
     
     int number_of_parameters=argc-1;
     
@@ -39,9 +39,7 @@ float exp_base_two(int n){
         
         
     }
-    const char* world_1=argv[1];
-    const char* world_2=argv[2];
-    const char* world_3=argv[3];
+   
    // int is_signed=0,parte_entera=0,parte_fraccionaria=0;
     
     //Extracting the int numbers from the string parameters
@@ -49,16 +47,19 @@ float exp_base_two(int n){
     int Error =0;
     
     for(int j=0;j<strlen(world_1);j++){
-        if (world_1[j]<='9' && world_1[j]>= '0')
-            is_signed = is_signed * 10 + ( world_1[j] - '0' );
-        else {
-            Error=1;
+        if (world_1[j]=='1' ||world_1[j]== '-')
+            *is_signed = TRUE;
+        else if (world_1[j]== '0' ){
+            *is_signed=FALSE;
             break;
+        }
+        else{
+            Error=1;
         }
     }
     for(int j=0;j<strlen(world_2);j++){
         if (world_2[j]<='9' && world_2[j]>= '0')
-            parte_entera = parte_entera * 10 + ( world_2[j] - '0' );
+            *parte_entera = *parte_entera * 10 + ( world_2[j] - '0' );
         else {
             Error=1;
             break;
@@ -66,7 +67,7 @@ float exp_base_two(int n){
     }
     for(int j=0;j<strlen(world_3);j++){
         if (world_3[j]<='9' && world_3[j]>= '0')
-            parte_fraccionaria = parte_fraccionaria * 10 + ( world_3[j] - '0' );
+            *parte_fraccionaria = *parte_fraccionaria * 10 + ( world_3[j] - '0' );
         else {
             Error=1;
             break;
@@ -75,4 +76,4 @@ float exp_base_two(int n){
     return Error;
     
 }
-*/
+
